@@ -11,7 +11,7 @@ import Event from './components/Event/Event'
 import EventList from './components/EventList/EventList'
 import TimelineEvent from './components/TimelineEvent/TimelineEvent'
 
-moment.locale('es');
+moment.locale('en-GB');
 
 export default class App extends Component {
 
@@ -195,7 +195,7 @@ export default class App extends Component {
     const { name, position, isAvailable, isLoading, currentEvent, prevEvent, nextEvent, currentTime } = this.state
 
     if( isLoading ) {
-      return <div className="App loading">Cargando...</div>
+      return <div className="App loading">Loading...</div>
     }
 
     return (
