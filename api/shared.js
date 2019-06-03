@@ -1,5 +1,5 @@
 const moment = require('moment-timezone')
-const timezone = 'America/Argentina/Buenos_Aires'
+const timezone = 'Europe/London'
 
 const newFreeSlot = (props) => ({
   id: null,
