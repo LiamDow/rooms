@@ -17,11 +17,11 @@ export default class TimelineEvent extends Component {
       return (
       <div className="TimelineEvent">
         {isNext ?
-          <div className="subtitle">Próxima reunión:</div>
+          <div className="subtitle">Next meeting:</div>
           :
-          <div className="subtitle">Reunión anterior:</div>
+          <div className="subtitle">Previous meeting:</div>
         }
-        <div className="title">Sala Libre</div>
+        <div className="title">Free room</div>
       </div>
       )
     }
@@ -36,22 +36,22 @@ export default class TimelineEvent extends Component {
         <div className="TimelineEvent">
           {isNext ?
             now.isSame(startDate, 'day') ?
-              <div className="subtitle">A partir de las {startDate.format('HH:mm')}hs</div>
+              <div className="subtitle">Starting at {startDate.format('HH:mm')}hs</div>
               :
-              <div className="subtitle">A partir del {startDate.format('dddd')} a las {startDate.format('HH:mm')}hs</div>
+              <div className="subtitle">From {startDate.format('dddd')} till {startDate.format('HH:mm')}hs</div>
             :
             now.isSame(endDate, 'day') ?
-              <div className="subtitle">Anteriormente a las {endDate.format('HH:mm')}hs</div>
+              <div className="subtitle">Before the {endDate.format('HH:mm')}hs</div>
               :
-              <div className="subtitle">Anteriormente el {endDate.format('dddd')} a las {endDate.format('HH:mm')}hs</div>
+              <div className="subtitle">Previously the {endDate.format('dddd')} till {endDate.format('HH:mm')}hs</div>
           }
           {isNext ? 
             now.isSame(endDate, 'day') ?
-              <div className="title">Sala Libre por {duration >= 120 ? `${Math.floor(duration/60)} horas` : `${duration} minutos`}</div>
+              <div className="title">Free room for {duration >= 120 ? `${Math.floor(duration/60)} hours` : `${duration} minutes`}</div>
               :
-              <div className="title">Sala Libre el resto del día</div>
+              <div className="title">Free room for the rest of the day</div>
             :
-            <div className="title">Sala Libre</div>
+            <div className="title">Free room</div>
           }
         </div>
       )
@@ -61,20 +61,20 @@ export default class TimelineEvent extends Component {
       <div className="TimelineEvent">
         {isNext ?
           now.isSame(startDate, 'day') ?
-            <div className="subtitle">Próxima reunión de {startDate.format('HH:mm')} a {endDate.format('HH:mm')}hs</div>
+            <div className="subtitle">Next meeting at {startDate.format('HH:mm')} till {endDate.format('HH:mm')}hs</div>
             :
             now.clone().add(1, 'day').isSame(startDate, 'day') ?
-              <div className="subtitle">Próxima reunión mañana de {startDate.format('HH:mm')} a {endDate.format('HH:mm')}hs</div>
+              <div className="subtitle">Next meeting tomorrow at {startDate.format('HH:mm')} till {endDate.format('HH:mm')}hs</div>
               :
-              <div className="subtitle">Próxima reunión el {startDate.format('dddd')} de {startDate.format('HH:mm')} a {endDate.format('HH:mm')}hs</div>
+              <div className="subtitle">Next meeting on {startDate.format('dddd')} at {startDate.format('HH:mm')} till {endDate.format('HH:mm')}hs</div>
           :
           now.isSame(endDate, 'day') ?
-            <div className="subtitle">Última reunión de {startDate.format('HH:mm')} a {endDate.format('HH:mm')}hs</div>
+            <div className="subtitle">Last meeting at {startDate.format('HH:mm')} till {endDate.format('HH:mm')}hs</div>
             :
             now.clone().add(-1, 'day').isSame(startDate, 'day') ?
-              <div className="subtitle">Última reunión ayer de {startDate.format('HH:mm')} a {endDate.format('HH:mm')}hs</div>
+              <div className="subtitle">Last meeting yesterday from {startDate.format('HH:mm')} till {endDate.format('HH:mm')}hs</div>
               :
-              <div className="subtitle">A long time ago in a galaxy far, far away...</div>
+              <div className="subtitle">A long time ago, in a Cloud far far away...</div>
         }
         <div className="title">{event.summary}</div>
       </div>
